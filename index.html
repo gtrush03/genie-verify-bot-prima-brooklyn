@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Prima Brooklyn — Coffee by day, wine by night</title>
+<meta name="description" content="A coffee shop and wine bar inside a Clinton Hill brownstone. 147 Greene Avenue, Brooklyn." />
+<meta property="og:title" content="Prima Brooklyn" />
+<meta property="og:description" content="Coffee by day. Wine by night. Inside a Brooklyn brownstone." />
+<meta property="og:image" content="/assets/hero.jpg" />
+<meta property="og:type" content="website" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg0:#f5efe4;
+    --bg1:#ebe2d2;
+    --ink0:#241a10;
+    --ink-mute:#6b5a44;
+    --line:#d9cdb6;
+    --accent:#a23b2c;
+    --accent-soft:#d8a89b;
+    --gold:#a07a3a;
+    --display:'Cormorant Garamond', Georgia, serif;
+    --body:'Inter', system-ui, -apple-system, sans-serif;
+    --mono:'JetBrains Mono', ui-monospace, monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg0);
+    color:var(--ink0);
+    font-family:var(--body);
+    font-weight:400;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--accent);color:var(--bg0)}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 max(20px, env(safe-area-inset-left)) 0 max(20px, env(safe-area-inset-right));
+  }
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--ink-mute);
+    margin:0 0 18px;
+  }
+
+  /* ---------- Nav ---------- */
+  nav.top{
+    position:absolute;top:0;left:0;right:0;z-index:5;
+    padding:22px max(20px, env(safe-area-inset-left));
+    display:flex;align-items:center;justify-content:space-between;
+    color:#fbf6ec;
+  }
+  nav.top .mark{
+    font-family:var(--display);
+    font-style:italic;
+    font-size:24px;
+    letter-spacing:.01em;
+  }
+  nav.top .links{
+    display:flex;gap:28px;
+    font-family:var(--mono);
+    font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  }
+  nav.top a{text-decoration:none;opacity:.9}
+  nav.top a:hover{opacity:1;color:#fff}
+  @media (max-width:720px){
+    nav.top .links{display:none}
+  }
+
+  /* ---------- Hero ---------- */
+  header.hero{
+    position:relative;
+    min-height:92vh;
+    color:#fbf6ec;
+    display:flex;align-items:flex-end;
+    padding:80px max(20px, env(safe-area-inset-left)) 70px;
+    isolation:isolate;
+    overflow:hidden;
+  }
+  header.hero::before{
+    content:"";position:absolute;inset:0;z-index:-2;
+    background:url('/assets/hero.jpg') center/cover no-repeat;
+    transform:scale(1.02);
+  }
+  header.hero::after{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:linear-gradient(180deg, rgba(20,12,5,.55) 0%, rgba(20,12,5,.15) 35%, rgba(20,12,5,.55) 80%, rgba(20,12,5,.85) 100%);
+  }
+  .hero-inner{max-width:980px;margin:0 auto;width:100%}
+  .hero-kicker{
+    font-family:var(--mono);
+    font-size:12px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--accent-soft);
+    margin:0 0 24px;
+  }
+  .hero-kicker .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent-soft);margin:0 12px 2px;vertical-align:middle}
+  h1.hero-title{
+    font-family:var(--display);
+    font-weight:400;
+    font-size:clamp(46px, 8.4vw, 116px);
+    line-height:.96;
+    letter-spacing:-0.012em;
+    margin:0 0 28px;
+  }
+  h1.hero-title em{font-style:italic;color:var(--accent-soft);font-weight:500}
+  .hero-sub{
+    max-width:580px;
+    font-size:clamp(15px,1.5vw,18px);
+    color:#f0e6d4;
+    line-height:1.55;
+    margin:0 0 36px;
+  }
+  .hero-cta{
+    display:inline-flex;align-items:center;gap:12px;
+    background:#fbf6ec;color:var(--ink0);
+    padding:15px 26px;
+    font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    text-decoration:none;border-radius:0;
+    transition:background .2s ease;
+  }
+  .hero-cta:hover{background:var(--accent);color:#fbf6ec}
+  .hero-meta{
+    position:absolute;bottom:32px;right:max(20px,env(safe-area-inset-right));
+    font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--accent-soft);text-align:right;
+    line-height:1.7;
+  }
+  @media (max-width:720px){.hero-meta{display:none}}
+
+  /* ---------- Section base ---------- */
+  section{padding:96px 0;position:relative}
+  section + section{border-top:1px solid var(--line)}
+  h2{
+    font-family:var(--display);
+    font-weight:500;
+    font-style:italic;
+    font-size:clamp(34px, 5vw, 60px);
+    line-height:1.05;
+    letter-spacing:-.005em;
+    margin:0 0 28px;
+    color:var(--ink0);
+  }
+  h2 .accent{color:var(--accent);font-style:italic}
+  p{margin:0 0 18px}
+
+  /* ---------- Story ---------- */
+  .story{
+    display:grid;grid-template-columns: 0.95fr 1.1fr;gap:72px;align-items:start;
+  }
+  .story .lede p{
+    font-family:var(--display);
+    font-size:clamp(22px, 2.2vw, 28px);
+    line-height:1.4;
+    color:var(--ink0);
+    font-style:italic;
+    font-weight:400;
+  }
+  .story .lede p::first-letter{
+    font-family:var(--display);
+    font-size:5em;float:left;line-height:.85;
+    padding:8px 14px 0 0;color:var(--accent);
+    font-style:italic;
+  }
+  .story .body p{color:var(--ink-mute);font-size:16px;line-height:1.7}
+  .story .body strong{color:var(--ink0);font-weight:500}
+  @media (max-width:880px){.story{grid-template-columns:1fr;gap:36px}}
+
+  /* ---------- Two lives split ---------- */
+  .two-lives{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:0;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .two-lives .col{
+    padding:64px 48px;
+    border-right:1px solid var(--line);
+    position:relative;
+  }
+  .two-lives .col:last-child{border-right:none;background:#1c1108;color:#f0e6d4}
+  .two-lives .col:last-child .eyebrow{color:var(--accent-soft)}
+  .two-lives .col:last-child h3{color:#fbf6ec}
+  .two-lives h3{
+    font-family:var(--display);font-style:italic;font-weight:500;
+    font-size:clamp(34px,4.5vw,52px);
+    margin:0 0 22px;line-height:1;
+  }
+  .two-lives .desc{
+    color:var(--ink-mute);font-size:15px;line-height:1.65;margin:0 0 28px;
+  }
+  .two-lives .col:last-child .desc{color:#c9bca4}
+  .two-lives ul{list-style:none;padding:0;margin:0;font-family:var(--mono);font-size:13px;letter-spacing:.04em}
+  .two-lives ul li{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding:11px 0;border-bottom:1px dashed var(--line);
+    color:var(--ink0);
+  }
+  .two-lives .col:last-child ul li{
+    border-bottom:1px dashed rgba(255,255,255,.1);
+    color:#f0e6d4;
+  }
+  .two-lives ul li .price{color:var(--ink-mute);font-size:11px;letter-spacing:.16em}
+  .two-lives .col:last-child ul li .price{color:#a8967a}
+  .two-lives .hours{
+    margin-top:28px;
+    font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--ink-mute);
+  }
+  .two-lives .col:last-child .hours{color:#a8967a}
+  @media (max-width:880px){
+    .two-lives{grid-template-columns:1fr}
+    .two-lives .col{border-right:none;border-bottom:1px solid var(--line);padding:48px 28px}
+  }
+
+  /* ---------- Photo essay strip ---------- */
+  .essay{
+    display:grid;grid-template-columns:1.1fr 0.95fr;gap:48px;align-items:center;
+  }
+  .essay.flip{grid-template-columns:0.95fr 1.1fr}
+  .essay .img{
+    aspect-ratio:4/5;
+    background-size:cover;background-position:center;
+    border-radius:0;
+    box-shadow: 0 30px 60px -25px rgba(36,26,16,.35);
+  }
+  .essay .copy h2{margin-bottom:24px}
+  .essay .copy p{color:var(--ink-mute);font-size:16px;line-height:1.7;max-width:46ch}
+  .essay .micro{
+    margin-top:36px;display:flex;gap:36px;flex-wrap:wrap;
+    font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mute);
+  }
+  .essay .micro .v{display:block;font-family:var(--display);font-style:italic;font-size:32px;color:var(--accent);letter-spacing:0;text-transform:none;margin-bottom:4px}
+  @media (max-width:880px){
+    .essay,.essay.flip{grid-template-columns:1fr;gap:32px}
+    .essay .img{aspect-ratio:5/4}
+  }
+
+  /* ---------- Wine ---------- */
+  .wine-section{
+    background:#1c1108;color:#f0e6d4;
+    padding:120px 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .wine-section .eyebrow{color:var(--accent-soft)}
+  .wine-section h2{color:#fbf6ec}
+  .wine-section h2 em{color:var(--accent-soft);font-style:italic}
+  .wine-grid{
+    display:grid;grid-template-columns:1.05fr 1.1fr;gap:64px;align-items:center;
+  }
+  .wine-grid .img{
+    aspect-ratio:4/5;
+    background:url('/assets/wine.jpg') center/cover no-repeat;
+    box-shadow: 0 40px 80px -30px rgba(0,0,0,.7);
+  }
+  .wine-grid p{color:#c9bca4;font-size:16px;line-height:1.7;max-width:48ch}
+  .wine-grid .pull{
+    font-family:var(--display);font-style:italic;
+    font-size:clamp(22px,2vw,26px);
+    color:#f0e6d4;
+    border-left:2px solid var(--accent);
+    padding-left:22px;margin:32px 0;line-height:1.45;
+  }
+  .wine-grid .pull cite{
+    display:block;margin-top:12px;font-family:var(--mono);
+    font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-style:normal;color:#a8967a;
+  }
+  @media (max-width:880px){.wine-grid{grid-template-columns:1fr;gap:36px}}
+
+  /* ---------- Visit ---------- */
+  .visit{
+    display:grid;grid-template-columns:1fr 1fr;gap:64px;
+  }
+  .visit-card{
+    border:1px solid var(--line);
+    padding:40px;
+    background:rgba(255,255,255,.4);
+  }
+  .visit-card h3{
+    font-family:var(--display);font-style:italic;font-weight:500;
+    font-size:32px;margin:0 0 24px;line-height:1;
+  }
+  .visit-card .row{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding:14px 0;border-bottom:1px solid var(--line);
+    font-family:var(--mono);font-size:13px;letter-spacing:.04em;
+  }
+  .visit-card .row:last-child{border-bottom:none}
+  .visit-card .row .day{color:var(--ink0);text-transform:uppercase;letter-spacing:.18em;font-size:11px}
+  .visit-card .row .h{color:var(--ink-mute)}
+  .visit-card .gap-note{
+    margin-top:18px;padding:14px 16px;background:#fbf6ec;border-left:2px solid var(--accent);
+    font-size:13px;color:var(--ink0);line-height:1.55;
+  }
+  .visit-card .gap-note strong{font-weight:600;color:var(--accent)}
+  .visit-info p{margin:0 0 12px}
+  .visit-info .label{
+    font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--ink-mute);margin:0 0 6px;
+  }
+  .visit-info .val{font-family:var(--display);font-style:italic;font-size:26px;color:var(--ink0);line-height:1.25;margin:0 0 28px;font-weight:500}
+  .visit-info a.val{text-decoration:none}
+  .visit-info a.val:hover{color:var(--accent)}
+  @media (max-width:880px){.visit{grid-template-columns:1fr;gap:36px}.visit-card{padding:28px}}
+
+  /* ---------- Garden ---------- */
+  .garden{
+    position:relative;
+    min-height:440px;
+    background:url('/assets/backyard.jpg') center/cover no-repeat;
+    color:#fbf6ec;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;
+    isolation:isolate;
+  }
+  .garden::after{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:linear-gradient(180deg, rgba(20,12,5,.4) 0%, rgba(20,12,5,.6) 100%);
+  }
+  .garden h2{color:#fbf6ec;margin-bottom:16px;max-width:680px}
+  .garden h2 em{color:var(--accent-soft)}
+  .garden p{color:#e6d9c0;max-width:520px;margin:0 auto;font-size:16px}
+  .garden .eyebrow{color:var(--accent-soft)}
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:#1c1108;color:#c9bca4;
+    padding:72px 0 32px;
+  }
+  footer .grid{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;
+    padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  footer .mark{
+    font-family:var(--display);font-style:italic;font-size:42px;color:#fbf6ec;line-height:1;margin:0 0 14px;
+  }
+  footer .tag{font-size:14px;line-height:1.6;max-width:38ch;color:#a8967a}
+  footer h4{
+    font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:#fbf6ec;margin:0 0 18px;
+  }
+  footer ul{list-style:none;padding:0;margin:0}
+  footer li{margin-bottom:10px;font-size:14px}
+  footer a{color:#c9bca4;text-decoration:none}
+  footer a:hover{color:#fbf6ec}
+  footer .meta{
+    padding-top:28px;display:flex;justify-content:space-between;align-items:center;
+    font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#7a6a52;flex-wrap:wrap;gap:12px;
+  }
+  @media (max-width:780px){footer .grid{grid-template-columns:1fr;gap:36px}}
+
+  /* watermark spacer so it doesn't collide with footer text */
+  footer{padding-bottom:64px}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<nav class="top" aria-label="Primary">
+  <a href="#" class="mark" aria-label="Prima Brooklyn — home">prima</a>
+  <div class="links">
+    <a href="#story">Story</a>
+    <a href="#menu">Menu</a>
+    <a href="#wine">Wine</a>
+    <a href="#visit">Visit</a>
+  </div>
+</nav>
+
+<header class="hero" role="banner">
+  <div class="hero-inner">
+    <p class="hero-kicker">Cafe<span class="dot"></span>Wine Bar<span class="dot"></span>Clinton Hill, Brooklyn</p>
+    <h1 class="hero-title">Coffee by day,<br/><em>wine</em> by night.</h1>
+    <p class="hero-sub">A cafe and wine bar tucked inside the parlor floor of a brownstone on Greene Avenue. Espresso and pain au chocolat in the front window in the morning. A glass of something natural in the back, after dark.</p>
+    <a href="#visit" class="hero-cta">Find us &nbsp; →</a>
+  </div>
+  <div class="hero-meta">
+    147 Greene Ave<br/>Brooklyn, NY 11238
+  </div>
+</header>
+
+<section id="story">
+  <div class="wrap">
+    <div class="story">
+      <div class="lede">
+        <p class="eyebrow">A Brownstone with two moods</p>
+        <p>In some of our wildest dreams, everything is located in a Brooklyn brownstone. Restaurants. Grocery stores. Exterminators. For the most part, this is impossible — except at Prima.</p>
+      </div>
+      <div class="body">
+        <p>Prima occupies the bottom floor of a brownstone on Greene Avenue, just east of Fort Greene Park. By morning the front window fills with people leaning over cappuccinos and laminated pastries, soft jazz on the speakers, a single shaft of sun across the marble counter.</p>
+        <p>By evening, the same room becomes <strong>an intimate wine bar</strong> — candlelight, glasses pulled by hand, a rotating list of bottles cultivated by the team. There's almost always at least one second date in the back, and in summer the backyard fills with strings of lights and shared bottles.</p>
+        <p>Two lives. One brownstone. The same warm room, lit two different ways.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="menu" style="padding-top:0">
+  <div class="wrap">
+    <div style="text-align:center;max-width:680px;margin:0 auto 64px">
+      <p class="eyebrow">The day &amp; the night</p>
+      <h2>Two menus, <span class="accent">one room.</span></h2>
+      <p style="color:var(--ink-mute);font-size:16px">We close from 3&nbsp;to 5&nbsp;pm to switch the espresso machine off and the sconces on. Pick your hour.</p>
+    </div>
+  </div>
+
+  <div class="two-lives">
+    <div class="col">
+      <p class="eyebrow">7 am – 3 pm</p>
+      <h3>Daytime.</h3>
+      <p class="desc">Single-origin coffee pulled on a vintage La Marzocco, laminated pastries from local bakers, a small handful of light bites. The coffee can be inconsistent in the way that hand-pulled coffee is. We think that's part of it.</p>
+      <ul>
+        <li>Cappuccino <span class="price">small / large</span></li>
+        <li>Cortado <span class="price">house favorite</span></li>
+        <li>Latte <span class="price">oat avail.</span></li>
+        <li>Drip coffee <span class="price">refills welcome</span></li>
+        <li>Croissant <span class="price">all butter</span></li>
+        <li>Pain au chocolat <span class="price">flaky</span></li>
+        <li>Chocolate-chip scone <span class="price">a regular's regular</span></li>
+        <li>Caesar salad <span class="price">light bites</span></li>
+      </ul>
+      <p class="hours">Open 7 → 3 · Mon – Sun</p>
+    </div>
+    <div class="col">
+      <p class="eyebrow">5 pm – late</p>
+      <h3>Evenings.</h3>
+      <p class="desc">An extensive and rotating selection of wines that we, frankly, find delicious. Mostly natural, mostly small producers, almost always something new. Snacks alongside, and a backyard in summer.</p>
+      <ul>
+        <li>By the glass <span class="price">rotating</span></li>
+        <li>By the bottle <span class="price">100+ list</span></li>
+        <li>Sake <span class="price">small selection</span></li>
+        <li>Snacks &amp; cheese <span class="price">light</span></li>
+        <li>Backyard service <span class="price">summer</span></li>
+        <li>Private events <span class="price">on request</span></li>
+        <li>Pop-ups &amp; tastings <span class="price">see Instagram</span></li>
+      </ul>
+      <p class="hours">Open 5 → late · Tue – Sat</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="essay">
+      <div class="img" style="background-image:url('/assets/pastry.jpg')" role="img" aria-label="Pain au chocolat on parchment"></div>
+      <div class="copy">
+        <p class="eyebrow">The morning thing</p>
+        <h2>Pulled, plated, <span class="accent">unhurried.</span></h2>
+        <p>The pastries come in early and they go fast. The espresso machine warms up while the first regulars stand in the doorway, pretending not to know each other. Sit in the front window if you can.</p>
+        <div class="micro">
+          <div><span class="v">7am</span>doors open</div>
+          <div><span class="v">3pm</span>machine off</div>
+          <div><span class="v">$4-7</span>most cups</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="wine" class="wine-section">
+  <div class="wrap">
+    <div class="wine-grid">
+      <div class="img" role="img" aria-label="Two glasses of wine on a marble table at dusk"></div>
+      <div>
+        <p class="eyebrow">After the espresso machine clicks off</p>
+        <h2>An <em>intimate</em> wine bar, on the same marble.</h2>
+        <p>The room reverses itself. The pastry case empties, candles come out, and the back tables fill up with people who came here on purpose. The list rotates often — ask whoever pours you, they'll know what's open.</p>
+        <blockquote class="pull">
+          "A coffee shop and wine bar in a Clinton Hill brownstone. They host frequent events, and they have a backyard where you can lounge with a bottle in the summer."
+          <cite>— The Infatuation</cite>
+        </blockquote>
+        <p>Reservations aren't required. Walk in, sit down, ask what's good.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="garden" aria-label="Backyard garden">
+  <div class="wrap">
+    <p class="eyebrow">Out back, in summer</p>
+    <h2>A small <em>garden</em> with strings of lights.</h2>
+    <p>Open seasonally when the weather agrees. Bottles travel well; conversations travel further.</p>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <div style="text-align:center;max-width:680px;margin:0 auto 56px">
+      <p class="eyebrow">Find us</p>
+      <h2>147 Greene Ave, <span class="accent">Brooklyn.</span></h2>
+      <p style="color:var(--ink-mute)">Between Washington and Waverly, a short walk from Fort Greene Park and the Clinton–Washington C station.</p>
+    </div>
+    <div class="visit">
+      <div class="visit-card">
+        <h3>Hours</h3>
+        <div class="row"><span class="day">Mon – Fri</span><span class="h">7 am — 3 pm &nbsp;·&nbsp; 5 pm — late</span></div>
+        <div class="row"><span class="day">Saturday</span><span class="h">7 am — 3 pm &nbsp;·&nbsp; 5 pm — late</span></div>
+        <div class="row"><span class="day">Sunday</span><span class="h">7 am — 3 pm</span></div>
+        <div class="gap-note"><strong>Closed 3 – 5 pm.</strong> We use it to flip the room. You can't stay here all day drinking coffee until it magically turns to wine — at least, not in one sitting.</div>
+      </div>
+
+      <div class="visit-info">
+        <p class="label">Address</p>
+        <a class="val" href="https://maps.apple.com/?q=147+Greene+Ave+Brooklyn+NY+11238" target="_blank" rel="noopener">147 Greene Avenue<br/>Brooklyn, NY 11238</a>
+
+        <p class="label">Phone</p>
+        <a class="val" href="tel:+17187897890">(718) 789&#8209;7890</a>
+
+        <p class="label">Follow along</p>
+        <a class="val" href="https://www.instagram.com/primabrooklyn/" target="_blank" rel="noopener">@primabrooklyn</a>
+
+        <p class="label">Subway</p>
+        <p class="val" style="color:var(--ink-mute)">C to Clinton–Washington · G to Classon</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <p class="mark">prima</p>
+        <p class="tag">A coffee shop and wine bar inside a Clinton Hill brownstone. Two lives, one room, on Greene Avenue since opening day.</p>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li>147 Greene Ave</li>
+          <li>Brooklyn, NY 11238</li>
+          <li><a href="tel:+17187897890">(718) 789-7890</a></li>
+          <li><a href="https://www.primabrooklyn.com" target="_blank" rel="noopener">primabrooklyn.com</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/primabrooklyn/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#wine">Wine list</a></li>
+          <li><a href="#visit">Hours</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="meta">
+      <span>© Prima Brooklyn · Clinton Hill</span>
+      <span>Built with care for @verify-bot · 2026-05-04</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://jelly-claw.com" target="_blank" rel="noopener" style="position:fixed;bottom:14px;right:14px;display:inline-flex;align-items:center;gap:6px;padding:6px 12px 6px 8px;background:rgba(19,19,19,.8);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08);border-radius:999px;color:#c9bca4;font:11px/1 'Inter',sans-serif;letter-spacing:.16em;text-decoration:none;text-transform:uppercase;z-index:9999">
+  <img src="/favicon.svg" width="20" height="20" alt=""><span>genie</span>
+</a>
+
+</body>
+</html>
