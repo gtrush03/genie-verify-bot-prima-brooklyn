@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Prima Brooklyn — coffee by day, wine by night.</title>
+  <meta name="description" content="A cozy cafe and natural wine bar tucked into a Clinton Hill brownstone, a block from Fort Greene. 147 Greene Ave, Brooklyn.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <meta property="og:title" content="Prima Brooklyn — coffee by day, wine by night.">
+  <meta property="og:description" content="A cozy cafe and natural wine bar tucked into a Clinton Hill brownstone, a block from Fort Greene.">
+  <meta property="og:image" content="/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg0: #f4ede1;
+      --bg1: #f9f6f0;
+      --bg2: #ffffff;
+      --ink0: #2b1d12;
+      --ink1: #493c31;
+      --ink-mute: #857b6f;
+      --line: #d6cec2;
+      --line-strong: #b8afa3;
+      --accent: #a8412a;
+      --accent-soft: #d6a898;
+      --display: 'Fraunces', 'Cormorant Garamond', Georgia, serif;
+      --body: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg0); color: var(--ink0);
+      font-family: var(--body);
+      font-size: clamp(16px, 0.5vw + 14px, 18px); line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='2' seed='5'/><feColorMatrix values='0 0 0 0 0.67  0 0 0 0 0.51  0 0 0 0 0.36  0 0 0 .55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/></svg>");
+      opacity: .12; mix-blend-mode: multiply;
+    }
+
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 32px); position: relative; z-index: 1; }
+    .narrow { max-width: 720px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 32px); position: relative; z-index: 1; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      padding: 18px clamp(20px, 4vw, 32px);
+      display: flex; justify-content: space-between; align-items: center;
+      background: linear-gradient(to bottom, color-mix(in srgb, var(--bg0) 86%, transparent) 30%, transparent);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    nav .brand {
+      font-family: var(--display); font-weight: 500; font-style: italic;
+      color: var(--ink0); text-decoration: none; font-size: 22px; letter-spacing: -0.02em;
+    }
+    nav .brand .dot { color: var(--accent); }
+    nav .address { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mute); }
+    @media (max-width: 560px) { nav .address { display: none; } }
+
+    .hero {
+      position: relative; min-height: 100vh; display: flex; align-items: flex-end;
+      padding: 0 0 clamp(56px, 9vw, 110px); overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 20% 12%, color-mix(in srgb, var(--accent) 22%, transparent) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 88% 80%, color-mix(in srgb, var(--accent-soft) 60%, transparent) 0%, transparent 55%),
+        radial-gradient(ellipse 90% 50% at 50% 100%, color-mix(in srgb, var(--ink0) 12%, transparent) 0%, transparent 60%),
+        linear-gradient(160deg, var(--bg1) 0%, var(--bg0) 50%, color-mix(in srgb, var(--accent-soft) 30%, var(--bg0)) 100%);
+    }
+    .hero-bg::after {
+      content: ""; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='2' seed='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/></svg>");
+      mix-blend-mode: multiply; opacity: .25;
+    }
+    .hero::after {
+      content: ""; position: absolute; top: 0; right: 6%; width: clamp(160px, 22vw, 320px); height: 100%;
+      background: linear-gradient(to bottom, color-mix(in srgb, #fff 60%, transparent) 0%, transparent 55%);
+      filter: blur(40px); pointer-events: none; opacity: .6;
+    }
+
+    .hero-content { position: relative; z-index: 1; padding: 0 clamp(20px, 5vw, 40px); max-width: 1000px; }
+    .kicker {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ink0);
+      padding: 9px 16px;
+      border: 1px solid var(--accent); border-radius: 999px;
+      background: color-mix(in srgb, var(--bg0) 70%, transparent);
+    }
+    .kicker .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+
+    .hero h1 {
+      font-family: var(--display);
+      font-size: clamp(52px, 10vw, 130px); line-height: 0.94; letter-spacing: -0.035em;
+      font-weight: 500; font-style: italic;
+      margin-top: 28px; max-width: 16ch;
+    }
+    .hero h1 em { font-style: normal; color: var(--accent); font-weight: 600; }
+    .hero .lede { color: var(--ink1); margin-top: 30px; font-size: clamp(17px, 0.7vw + 14px, 21px); max-width: 52ch; line-height: 1.6; }
+
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      min-height: 50px; padding: 0 26px;
+      border-radius: 999px; font-weight: 500; font-size: 15px;
+      text-decoration: none; transition: transform .2s ease, background .2s ease;
+      font-family: var(--body);
+    }
+    .btn-primary { background: var(--accent); color: var(--bg0); border: 1px solid var(--accent); }
+    .btn-primary:hover { transform: translateY(-1px); background: #8a3522; }
+    .btn-ghost { background: transparent; color: var(--ink0); border: 1px solid var(--line-strong); }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+    .btn .arrow { font-size: 18px; }
+
+    section.composed { padding: clamp(80px, 12vw, 140px) 0; position: relative; }
+    section.composed + section.composed { border-top: 1px solid var(--accent-soft); }
+    .eyebrow {
+      display: inline-block;
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 22px;
+    }
+    section.composed h2 {
+      font-family: var(--display); font-weight: 500; font-style: italic;
+      font-size: clamp(34px, 5.5vw, 60px); line-height: 1.05; letter-spacing: -0.025em;
+      margin-bottom: 28px; max-width: 22ch;
+    }
+    section.composed h2 em { font-style: normal; color: var(--accent); font-weight: 600; }
+    section.composed p { color: var(--ink1); font-size: clamp(17px, 0.4vw + 15px, 19px); line-height: 1.7; }
+    section.composed p + p { margin-top: 22px; }
+
+    .composed-narrative-quote .narrow > p:first-of-type::first-letter {
+      font-family: var(--display); font-size: 4.2em; line-height: 0.85;
+      float: left; padding: 0.06em 0.14em 0 0; color: var(--accent); font-weight: 600; font-style: italic;
+    }
+
+    .pillars { display: grid; gap: clamp(28px, 4vw, 48px); margin-top: 14px; }
+    @media (min-width: 760px) { .pillars { grid-template-columns: repeat(3, 1fr); gap: 0; } }
+    .pillar { padding: clamp(20px, 3vw, 32px) clamp(20px, 3vw, 36px); position: relative; }
+    @media (min-width: 760px) {
+      .pillar + .pillar { border-left: 1px solid var(--line); }
+    }
+    .pillar .num {
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; color: var(--ink-mute); text-transform: uppercase;
+      display: block; margin-bottom: 14px;
+    }
+    .pillar h3 {
+      font-family: var(--display); font-style: italic; font-weight: 500; font-size: 24px;
+      letter-spacing: -0.01em; margin-bottom: 14px; color: var(--ink0);
+    }
+    .pillar p { font-size: 16px; line-height: 1.65; color: var(--ink1); }
+
+    .hours-card {
+      background: var(--bg1); border: 1px solid var(--line);
+      border-radius: 16px; padding: clamp(28px, 4vw, 44px);
+      max-width: 600px; margin: 0 auto;
+    }
+    .hours-card .row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 14px 0; border-bottom: 1px dashed var(--line);
+      font-size: 17px;
+    }
+    .hours-card .row:last-of-type { border-bottom: none; }
+    .hours-card .row .day { font-family: var(--display); font-style: italic; font-weight: 500; color: var(--ink0); }
+    .hours-card .row .hours { font-family: var(--mono); font-size: 13.5px; color: var(--ink1); letter-spacing: 0.02em; }
+    .hours-card .row.weekend { background: linear-gradient(to right, color-mix(in srgb, var(--accent) 6%, transparent), transparent); margin: 0 -12px; padding: 14px 12px; border-radius: 8px; border-bottom-color: transparent; }
+    .hours-card .footnote {
+      margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--accent-soft);
+      font-family: var(--body); font-size: 14px; color: var(--ink1); line-height: 1.55;
+    }
+    .hours-card .footnote span { color: var(--accent); font-weight: 500; }
+
+    .menu-grid {
+      display: grid; gap: clamp(20px, 3vw, 32px); margin-top: 12px;
+    }
+    @media (min-width: 760px) { .menu-grid { grid-template-columns: repeat(3, 1fr); } }
+    .menu-card {
+      background: var(--bg2); border: 1px solid var(--line); border-radius: 14px;
+      padding: clamp(24px, 3.5vw, 36px); position: relative; overflow: hidden;
+      transition: transform .25s ease, border-color .25s ease;
+    }
+    .menu-card:hover { transform: translateY(-2px); border-color: var(--accent-soft); }
+    .menu-card .glyph {
+      width: 56px; height: 56px; margin-bottom: 22px; color: var(--accent);
+    }
+    .menu-card h3 { font-family: var(--display); font-style: italic; font-weight: 500; font-size: 24px; margin-bottom: 12px; }
+    .menu-card p { font-size: 15.5px; line-height: 1.6; color: var(--ink1); }
+    .menu-card .small {
+      margin-top: 18px; padding-top: 16px; border-top: 1px dashed var(--line);
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mute);
+    }
+    .menu-intro {
+      max-width: 56ch; margin-bottom: 48px; font-size: clamp(17px, 0.4vw + 15px, 19px);
+    }
+
+    .composed-pull-quote { background: var(--bg1); padding: clamp(80px, 12vw, 130px) 0; }
+    .composed-pull-quote blockquote {
+      font-family: var(--display); font-style: italic; font-weight: 500;
+      font-size: clamp(28px, 4.5vw, 50px); line-height: 1.15; letter-spacing: -0.018em;
+      max-width: 18ch; margin: 0 auto; text-align: center; color: var(--ink0);
+    }
+    .composed-pull-quote .who {
+      display: block; margin-top: 36px; text-align: center;
+      font-family: var(--mono); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent);
+    }
+    .composed-pull-quote .who-detail {
+      max-width: 38ch; margin: 18px auto 0; text-align: center; color: var(--ink1); font-size: 15.5px;
+    }
+
+    .contact-wrap {
+      display: grid; gap: clamp(32px, 5vw, 64px);
+    }
+    @media (min-width: 880px) { .contact-wrap { grid-template-columns: 1fr 1fr; align-items: start; } }
+    .contact-card {
+      background: var(--bg1); border: 1px solid var(--line); border-radius: 18px;
+      padding: clamp(28px, 4vw, 44px);
+    }
+    .contact-row { padding: 16px 0; border-bottom: 1px dashed var(--line); }
+    .contact-row:last-child { border-bottom: none; }
+    .contact-row .label { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 6px; display: block; }
+    .contact-row .value { font-size: 17px; color: var(--ink0); line-height: 1.55; }
+    .contact-row .value a { color: var(--ink0); text-decoration: none; border-bottom: 1px solid var(--accent-soft); transition: color .2s; }
+    .contact-row .value a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+    .map-stub {
+      aspect-ratio: 1/1; border-radius: 18px; overflow: hidden;
+      background:
+        repeating-linear-gradient(45deg, transparent 0 22px, color-mix(in srgb, var(--accent-soft) 22%, transparent) 22px 23px),
+        repeating-linear-gradient(-45deg, transparent 0 22px, color-mix(in srgb, var(--accent-soft) 22%, transparent) 22px 23px),
+        linear-gradient(135deg, var(--bg1), var(--bg2));
+      position: relative; border: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: center;
+      padding: clamp(24px, 4vw, 40px);
+    }
+    .map-stub::before {
+      content: ""; position: absolute; inset: 0;
+      background:
+        linear-gradient(to right, transparent 49.5%, color-mix(in srgb, var(--ink0) 12%, transparent) 49.5%, color-mix(in srgb, var(--ink0) 12%, transparent) 50.5%, transparent 50.5%),
+        linear-gradient(to bottom, transparent 38%, color-mix(in srgb, var(--ink0) 14%, transparent) 38%, color-mix(in srgb, var(--ink0) 14%, transparent) 39%, transparent 39%);
+    }
+    .map-stub .pin {
+      position: relative; z-index: 2;
+      background: var(--bg0); border: 1px solid var(--accent); border-radius: 14px;
+      padding: 18px 22px; text-align: center; box-shadow: 0 6px 22px color-mix(in srgb, var(--ink0) 14%, transparent);
+      max-width: 80%;
+    }
+    .map-stub .pin .marker {
+      display: inline-flex; width: 36px; height: 36px; border-radius: 50%;
+      background: var(--accent); color: var(--bg0);
+      align-items: center; justify-content: center; margin-bottom: 12px;
+      font-family: var(--display); font-weight: 600; font-style: italic; font-size: 19px;
+    }
+    .map-stub .pin .addr { font-family: var(--display); font-style: italic; font-weight: 500; font-size: 18px; color: var(--ink0); line-height: 1.3; }
+    .map-stub .pin .neighborhood { display: block; margin-top: 8px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-mute); }
+
+    .narrative-figure {
+      margin-top: 56px;
+      display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px;
+      max-width: 100%;
+    }
+    .narrative-figure .panel {
+      border-radius: 12px; position: relative; overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .narrative-figure .panel-1 { grid-column: 1 / span 7; aspect-ratio: 4/3;
+      background:
+        radial-gradient(ellipse 80% 60% at 30% 100%, color-mix(in srgb, var(--ink0) 30%, transparent), transparent 70%),
+        radial-gradient(circle at 70% 30%, color-mix(in srgb, var(--accent-soft) 60%, transparent), transparent 50%),
+        linear-gradient(160deg, var(--bg1), color-mix(in srgb, var(--accent) 12%, var(--bg0)));
+    }
+    .narrative-figure .panel-2 { grid-column: 8 / span 5; aspect-ratio: 4/5;
+      background:
+        radial-gradient(ellipse 60% 90% at 50% 0%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 60%),
+        linear-gradient(180deg, var(--bg2), color-mix(in srgb, var(--ink0) 8%, var(--bg0)));
+    }
+    .narrative-figure .panel-3 { grid-column: 1 / span 5; aspect-ratio: 1/1;
+      background:
+        radial-gradient(ellipse 100% 50% at 20% 50%, color-mix(in srgb, var(--accent-soft) 60%, transparent), transparent 70%),
+        linear-gradient(135deg, color-mix(in srgb, var(--accent) 20%, var(--bg0)), var(--bg0));
+    }
+    .narrative-figure .panel-4 { grid-column: 6 / span 7; aspect-ratio: 16/10;
+      background:
+        radial-gradient(ellipse 90% 50% at 80% 60%, color-mix(in srgb, var(--ink0) 30%, transparent), transparent 65%),
+        linear-gradient(200deg, var(--bg1), color-mix(in srgb, var(--accent-soft) 40%, var(--bg0)));
+    }
+    .narrative-figure .panel::after {
+      content: ""; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' seed='3'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/></svg>");
+      mix-blend-mode: multiply; opacity: .25;
+    }
+    .narrative-figure .panel .label {
+      position: absolute; bottom: 14px; left: 16px;
+      font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink0);
+      background: color-mix(in srgb, var(--bg0) 80%, transparent); padding: 6px 10px; border-radius: 999px;
+    }
+    @media (max-width: 720px) {
+      .narrative-figure .panel-1, .narrative-figure .panel-2, .narrative-figure .panel-3, .narrative-figure .panel-4 { grid-column: 1 / -1; }
+    }
+
+    .composed-cta-band {
+      padding: clamp(80px, 12vw, 130px) 0;
+      background:
+        radial-gradient(ellipse 50% 80% at 90% 50%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 60%),
+        radial-gradient(ellipse 60% 60% at 10% 100%, color-mix(in srgb, var(--accent-soft) 40%, transparent), transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg0));
+      text-align: center;
+      border-top: 1px solid var(--accent-soft);
+    }
+    .composed-cta-band h2 {
+      font-family: var(--display); font-style: italic; font-weight: 500;
+      font-size: clamp(40px, 7vw, 76px); line-height: 1.02; letter-spacing: -0.028em;
+      max-width: 18ch; margin: 0 auto 24px;
+    }
+    .composed-cta-band h2 em { font-style: normal; color: var(--accent); font-weight: 600; }
+    .composed-cta-band p { max-width: 44ch; margin: 0 auto; font-size: 17.5px; }
+    .composed-cta-band .ctas { margin-top: 36px; display: inline-flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+
+    footer { border-top: 1px solid var(--line); padding: 56px 0 96px; position: relative; z-index: 1; }
+    footer .row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; align-items: center; }
+    footer .made { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mute); }
+    footer .ornament { color: var(--accent); font-size: 22px; }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal { opacity: 0; transform: translateY(24px); animation: reveal .9s ease-out forwards; animation-timeline: view(); animation-range: entry 0% cover 30%; }
+      @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
+    }
+
+    a, button { min-height: 32px; }
+    .btn, nav a { min-height: 44px; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="brand">prima<span class="dot">.</span></a>
+  <span class="address">147 GREENE AVE · BROOKLYN</span>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="kicker"><span class="dot"></span>147 GREENE AVE · BROOKLYN</span>
+    <h1><em>prima.</em> coffee by day, wine by night.</h1>
+    <p class="lede">a cozy cafe and natural wine bar tucked into a Clinton Hill brownstone, a block from Fort Greene — espresso, pastries, a long alleyway, and a quiet backyard.</p>
+    <div class="hero-ctas">
+      <a href="#visit" class="btn btn-primary">Visit us <span class="arrow">→</span></a>
+      <a href="#hours" class="btn btn-ghost">See hours</a>
+    </div>
+  </div>
+</section>
+
+<section class="composed composed-narrative-quote reveal" id="the-place">
+  <div class="narrow">
+    <span class="eyebrow">01 — the place</span>
+    <h2>a brownstone you can <em>sit in</em> all day.</h2>
+    <p>front porch in the morning, a long alleyway through the middle, a quiet backyard for the afternoon. wifi, outlets, and a chocolate-chip scone if you got here early enough.</p>
+    <p>it was a parlor once, with the bones to prove it — pressed tin overhead, original molding around the windows, the slow give of an old wood floor underfoot. we kept what was kind and softened what wasn't. the espresso machine sits where the piano used to.</p>
+    <div class="narrative-figure" aria-hidden="true">
+      <div class="panel panel-1"><span class="label">front porch · morning</span></div>
+      <div class="panel panel-2"><span class="label">the bar</span></div>
+      <div class="panel panel-3"><span class="label">backyard</span></div>
+      <div class="panel panel-4"><span class="label">the alleyway</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="composed composed-three-pillars reveal" id="what-we-do">
+  <div class="wrap">
+    <div class="narrow" style="padding-bottom: 8px;">
+      <span class="eyebrow">02 — what we do</span>
+      <h2>two shifts, <em>one room.</em></h2>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <span class="num">i.</span>
+        <h3>Daytime cafe</h3>
+        <p>espresso, drip, matcha, teas, and house pastries from 8am. counter service, long tables, a porch for the spring.</p>
+      </div>
+      <div class="pillar">
+        <span class="num">ii.</span>
+        <h3>Evening wine bar</h3>
+        <p>natural wines by the glass and bottle, wednesday through sunday. small plates from the kitchen, low light, the back garden when the weather allows.</p>
+      </div>
+      <div class="pillar">
+        <span class="num">iii.</span>
+        <h3>The kitchen</h3>
+        <p>a small kitchen pop-up rotates through the back of the room — snacks for wine service, plates for dinner, and an occasional weekend pastry.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="composed reveal" id="hours">
+  <div class="narrow">
+    <span class="eyebrow">03 — hours</span>
+    <h2><em>when</em> we're open.</h2>
+    <div class="hours-card">
+      <div class="row"><span class="day">Monday</span><span class="hours">8am — 5pm</span></div>
+      <div class="row"><span class="day">Tuesday</span><span class="hours">8am — 5pm</span></div>
+      <div class="row weekend"><span class="day">Wednesday</span><span class="hours">8am — 10pm</span></div>
+      <div class="row weekend"><span class="day">Thursday</span><span class="hours">8am — 10pm</span></div>
+      <div class="row weekend"><span class="day">Friday</span><span class="hours">8am — 10pm</span></div>
+      <div class="row weekend"><span class="day">Saturday</span><span class="hours">8am — 10pm</span></div>
+      <div class="row weekend"><span class="day">Sunday</span><span class="hours">8am — 8pm</span></div>
+      <div class="footnote">wine service: <span>wed–sat 5–10pm</span>, <span>sun 4–8pm</span>. holidays and private events may shift — check our instagram for same-day notes.</div>
+    </div>
+  </div>
+</section>
+
+<section class="composed composed-photo-essay reveal" id="menu">
+  <div class="wrap">
+    <div class="narrow" style="padding-bottom: 8px;">
+      <span class="eyebrow">04 — the menu</span>
+      <h2>small list, <em>made well.</em></h2>
+      <p class="menu-intro">a tight rotating menu of espresso drinks, teas, and from-the-counter pastries by day; natural wine and snacks by night.</p>
+    </div>
+    <div class="menu-grid">
+
+      <div class="menu-card">
+        <svg class="glyph" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 22h32v18a12 12 0 0 1-12 12h-8a12 12 0 0 1-12-12V22z"/>
+          <path d="M44 26h6a6 6 0 0 1 0 12h-6"/>
+          <path d="M22 8c0 4-4 4-4 8s4 4 4 8"/>
+          <path d="M32 8c0 4-4 4-4 8s4 4 4 8"/>
+        </svg>
+        <h3>Espresso bar</h3>
+        <p>house-roasted espresso, drip, cortado, cappuccino, matcha, and a small list of leaf teas. oat, whole, or a splash of cream.</p>
+        <div class="small">From 8am · daily</div>
+      </div>
+
+      <div class="menu-card">
+        <svg class="glyph" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M10 36c0-8 6-14 14-14h16c8 0 14 6 14 14v6H10v-6z"/>
+          <path d="M14 42v4a4 4 0 0 0 4 4h28a4 4 0 0 0 4-4v-4"/>
+          <circle cx="22" cy="32" r="1.5" fill="currentColor"/>
+          <circle cx="32" cy="30" r="1.5" fill="currentColor"/>
+          <circle cx="42" cy="33" r="1.5" fill="currentColor"/>
+          <path d="M20 22c2-4 4-6 8-6M36 18c2 0 4 1 6 4"/>
+        </svg>
+        <h3>Pastries</h3>
+        <p>from the counter — a chocolate-chip scone people walk in early for, a blueberry muffin, peanut-butter cookies, and whatever the baker felt like that morning.</p>
+        <div class="small">Until they sell out</div>
+      </div>
+
+      <div class="menu-card">
+        <svg class="glyph" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 10h20v12c0 8-4.5 14-10 14s-10-6-10-14V10z"/>
+          <path d="M32 36v16"/>
+          <path d="M24 54h16"/>
+          <path d="M22 16h20"/>
+        </svg>
+        <h3>Wine list</h3>
+        <p>a tight, rotating list of low-intervention bottles from small producers — by the glass and the bottle. ask what the bartender is drinking; that's usually the right answer.</p>
+        <div class="small">Wed–Sun · evenings</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="composed composed-pull-quote reveal">
+  <div class="narrow">
+    <span class="eyebrow" style="display:block; text-align:center;">05 — neighbors say</span>
+    <blockquote>&ldquo;feels like a <em>college-town</em> cafe — but in a brownstone.&rdquo;</blockquote>
+    <span class="who">A regulars-first room</span>
+    <p class="who-detail">front porch, long alleyway, backyard. work in the morning, linger in the afternoon, stay for a glass.</p>
+  </div>
+</section>
+
+<section class="composed reveal" id="visit">
+  <div class="wrap">
+    <div class="narrow" style="padding-bottom: 16px;">
+      <span class="eyebrow">06 — visit</span>
+      <h2><em>find</em> us.</h2>
+      <p style="max-width: 50ch;">147 Greene Ave, Brooklyn, NY 11238 — Clinton Hill, just off Fort Greene. walk in for coffee. ring for wine or private events.</p>
+    </div>
+    <div class="contact-wrap">
+      <div class="contact-card">
+        <div class="contact-row">
+          <span class="label">Address</span>
+          <div class="value"><a href="https://www.google.com/maps/search/?api=1&query=147+Greene+Ave+Brooklyn+NY+11238" target="_blank" rel="noopener">147 Greene Ave<br>Brooklyn, NY 11238</a></div>
+        </div>
+        <div class="contact-row">
+          <span class="label">Phone</span>
+          <div class="value"><a href="tel:17187897890">(718) 789-7890</a></div>
+        </div>
+        <div class="contact-row">
+          <span class="label">Instagram</span>
+          <div class="value"><a href="https://instagram.com/primabrooklyn" target="_blank" rel="noopener">@primabrooklyn</a></div>
+        </div>
+        <div class="contact-row">
+          <span class="label">Private events &amp; back-patio bookings</span>
+          <div class="value">ring the cafe or DM us on instagram — we'll get back to you within a day or two.</div>
+        </div>
+      </div>
+      <div class="map-stub" aria-hidden="true">
+        <div class="pin">
+          <span class="marker">P</span>
+          <div class="addr">147 Greene Ave</div>
+          <span class="neighborhood">Clinton Hill · Brooklyn</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="composed composed-cta-band reveal">
+  <div class="narrow">
+    <h2><em>see</em> you on the porch.</h2>
+    <p>no reservations for coffee — just walk in. for wine and private events, give us a ring.</p>
+    <div class="ctas">
+      <a href="tel:17187897890" class="btn btn-primary">Call (718) 789-7890 <span class="arrow">→</span></a>
+      <a href="https://instagram.com/primabrooklyn" target="_blank" rel="noopener" class="btn btn-ghost">Follow on instagram</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap row">
+    <div class="made">Prima Brooklyn · Clinton Hill</div>
+    <div class="ornament">❦</div>
+    <div class="made">147 Greene Ave · (718) 789-7890</div>
+  </div>
+</footer>
+
+<a href="https://jelly-claw.com" target="_blank" rel="noopener" style="position:fixed;bottom:14px;right:14px;display:inline-flex;align-items:center;gap:6px;padding:6px 12px 6px 8px;background:rgba(19,19,19,.8);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08);border-radius:999px;color:#6e6a62;font:11px/1 'Inter',sans-serif;letter-spacing:.16em;text-decoration:none;text-transform:uppercase;z-index:9999">
+  <img src="/favicon.svg" width="20" height="20" alt=""><span>genie</span>
+</a>
+
+</body>
+</html>
